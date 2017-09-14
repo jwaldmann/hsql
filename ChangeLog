@@ -1,3 +1,6 @@
+2017-9-14
+	1.8.2.1: modify for compilation with ghc-8.2.1
+
 2010-1-24
     1.8.1: exception handling updated from Control.OldException to Control.Exception;
 	   refactorings
