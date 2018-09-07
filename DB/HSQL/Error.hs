@@ -5,7 +5,8 @@ with appropriate `Show', `Typeable', and `Exception' instances.
 module DB.HSQL.Error(SqlError(..)) where
 
 import Control.Exception(Exception(..),SomeException(..))
-import Data.Typeable(Typeable,cast)
+import Data.Typeable
+import Data.Proxy
 import DB.HSQL.Type(SqlType)
 
 -- |   
@@ -37,12 +38,11 @@ data SqlError
 
 instance Typeable SqlError where
 	typeOf _ = mkAppTy sqlErrorTc []
+#endif
 
 -- | The `TyCon' of `SqlError'.
 sqlErrorTc :: TyCon
-sqlErrorTc = mkTyCon3 "DB.HSQL" "Error" "SqlError"
-
-#endif
+sqlErrorTc = typeRepTyCon (typeRep (Proxy :: Proxy SqlError))
 
 -- |
 instance Show SqlError where

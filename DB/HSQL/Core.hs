@@ -5,7 +5,7 @@ import Prelude hiding(catch)
 import Control.Monad(when,unless)
 import Control.Exception(Exception,throw,catch,handle)
 import Control.Concurrent.MVar(MVar,withMVar,modifyMVar_)
-import Data.Typeable(cast)
+import Data.Typeable
 
 import DB.HSQL.Error(SqlError(SqlClosedHandle))
 
